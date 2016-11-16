@@ -1,19 +1,31 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-    <head>
-        <title>Project</title>
-        <style>
+<head>
 
-            .weekend{color: #FE0000;} .currentDay {color: #00FE00;} td{ width: 30px;}
+</head>
+<body>
+<input type="submit" value="Add Task" onclick="window.location='jsp/new_task.jsp'"><br>
 
-        </style>
-    </head>
-    <body>
+Things to do:
+<br>
 
-    <h2>dashboard</h2>
-        <form action="/dashboard">
-        <a href=\greeter>greeter</a>
-        <br>
-        <a href=\calendar>calendar</a>
-        </form>
-    </body>
+<c:forEach items="${taskList}" var="item">
+
+    &nbsp ${item.getTitle()} &nbsp <a href="/task_page?task=${item.getId()}"> details </a>
+    <br>
+
+</c:forEach>
+
+Already done:
+<br>
+
+<c:forEach items="${doneTasks}" var="item">
+
+    &nbsp ${item.getTitle()} &nbsp <a href="/task_page?task=${item.getId()}"> details </a>
+    <br>
+
+</c:forEach>
+
+
+</body>
 </html>
