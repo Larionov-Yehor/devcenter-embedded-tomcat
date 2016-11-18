@@ -16,5 +16,4 @@ public interface TaskDAO {
 
     public List<Task> getTask() throws SQLException, ClassNotFoundException;
 
-
 }
