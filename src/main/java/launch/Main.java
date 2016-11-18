@@ -1,10 +1,10 @@
 package launch;
 
 import java.io.File;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import dao.MySqlConnection;
 import org.apache.catalina.WebResourceRoot;
 import org.apache.catalina.WebResourceSet;
 import org.apache.catalina.core.StandardContext;
@@ -13,8 +13,6 @@ import org.apache.catalina.webresources.DirResourceSet;
 import org.apache.catalina.webresources.EmptyResourceSet;
 import org.apache.catalina.webresources.StandardRoot;
 import org.apache.tomcat.util.descriptor.web.ErrorPage;
-import org.apache.tomcat.util.scan.Constants;
-import org.apache.tomcat.util.scan.StandardJarScanFilter;
 
 public class Main {
 
@@ -48,7 +46,12 @@ public class Main {
         resources.addPreResources(resourceSet);
         ctx.setResources(resources);
 
+        MySqlConnection.createConnection();
+
+
+
         tomcat.start();
         tomcat.getServer().await();
+
     }
 }

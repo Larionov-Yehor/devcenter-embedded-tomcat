@@ -19,20 +19,17 @@ public class TaskPage extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String taskId = req.getParameter("task");
-        HttpSession session = req.getSession(true);
 
 
-        if(!session.isNew()){
 
-            Task task = (Task) session.getAttribute(taskId);
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/task_page.jsp");
-            req.setAttribute("task", task);
-            dispatcher.forward(req, resp);
 
-        }
-        else
-            resp.sendRedirect("/home");}
+
+       //RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/task_page.jsp");
+      // req.setAttribute("tasklist", taskId);
+      // dispatcher.forward(req, resp);
+
 
 
     }
+
+}

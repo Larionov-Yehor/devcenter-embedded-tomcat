@@ -4,24 +4,20 @@
 
 </head>
 <body>
-<input type="submit" value="Add Task" onclick="window.location='jsp/new_task.jsp'"><br>
+<input type="submit" value="Add taskList" onclick="window.location='jsp/new_tasklist.jsp'">
 
-Things to do:
+&nbsp&nbsp
+
+<input type="submit"  value="Add task" onclick="window.location='/newTask'">
 <br>
 
-<c:forEach items="${taskList}" var="item">
+Tasklists:
 
-    &nbsp ${item.getTitle()} &nbsp <a href="/task_page?task=${item.getId()}"> details </a>
-    <br>
-
-</c:forEach>
-
-Already done:
 <br>
 
-<c:forEach items="${doneTasks}" var="item">
+<c:forEach items="${taskLists}" var="item">
 
-    &nbsp ${item.getTitle()} &nbsp <a href="/task_page?task=${item.getId()}"> details </a>
+    &nbsp ${item.getName()} &nbsp <a href="/tasklist_page?taskListId=${item.getId()}"> view tasks </a>
     <br>
 
 </c:forEach>

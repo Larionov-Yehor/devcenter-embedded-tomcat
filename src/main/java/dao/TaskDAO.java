@@ -1,4 +1,4 @@
-package controller.dao;
+package dao;
 
 import model.Task;
 
